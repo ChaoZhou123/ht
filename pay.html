@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"></meta>
+        <title>购票 通道</title>
+    </head>
+    <body>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.2/FileSaver.min.js"></script>
+
+        <h1>购票通道</h1>
+        <hr>
+        <p>
+            姓名
+        </p>
+        <input type="text" placeholder="请输入姓名" id="input1"/>
+        <p>
+            微信号
+        </p>
+        <input type="text" placeholder="请输入微信号" id="input1"/>
+    <br/>
+    <br/>
+    <br/>
+    <h1>票价支付示例</h1>
+    <label for="ticketPrice">票价：</label>
+    <select id="ticketPrice">
+      <option value="70">70元</option>
+      <!-- 这里可以添加其他票价选项 -->
+    </select>
+    <br>
+    <label for="ticketQuantity">数量：</label>
+    <input type="number" id="ticketQuantity" min="1" value="1">
+    <br>
+    <button id="payBtn">支付</button>
+  
+    <script>
+      // 获取支付按钮、票价选择框、数量输入框
+      var payBtn = document.getElementById("payBtn");
+      var ticketPriceSelect = document.getElementById("ticketPrice");
+      var ticketQuantityInput = document.getElementById("ticketQuantity");
+  
+      // 监听支付按钮点击事件
+      payBtn.addEventListener("click", function() {
+        // 获取选择的票价和数量
+        var ticketPrice = ticketPriceSelect.value;
+        var ticketQuantity = ticketQuantityInput.value;
+  
+        // 计算支付总金额
+        var totalAmount = ticketPrice * ticketQuantity;
+  
+        // 构造支付请求URL，并跳转到支付页面
+        var payUrl = "支付页面的URL?totalAmount=" + totalAmount;
+        window.location.href = payUrl;
+      });
+    </script>
+        <a href="index.html">Home page</a>
+
+    </body>
+
+</html>
