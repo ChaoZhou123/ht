@@ -1,11 +1,16 @@
-var input1Value = document.getElementById("input1").value;
-var input2Value = document.getElementById("input2").value;
-var data = {
-    input1: input1Value,
-    input2: input2Value
-  };
+function calculateTotalPrice() {
+  // 获取表单数据
+  var ticketQty = document.getElementById("ticketQty").value;
   
-  var jsonData = JSON.stringify(data);
-  var blob = new Blob([jsonData], {type: "application/json"});
-  saveAs(blob, "data.json");
-   
+  // 固定购票价格
+  var ticketPrice = 77;
+  
+  // 计算总价
+  var totalPrice = ticketQty * ticketPrice;
+  
+  // 跳转到新页面并传递总价信息作为查询参数
+  window.location.href = "result.html?totalPrice=" + totalPrice;
+}
+
+
+
